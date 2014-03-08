@@ -8,7 +8,7 @@ var builder = require('xmlbuilder');
 var XmlReporter = function (baseReporterDecorator, config, logger, helper, formatError) {
 	var log = logger.create('reporter.xml');
 	var reporterConfig = config.xmlReporter || {};
-	var outputFile = helper.normalizeWinPath(path.resolve(config.basePath, reporterConfig.outputFile || 'test-results.xml'));
+	var outputFile = helper.normalizeWinPath(path.resolve(config.basePath, reporterConfig.outputFile || 'test-results.testxml'));
 
 	var xml;
 	var pendingFileWritings = 0;
@@ -48,7 +48,7 @@ var XmlReporter = function (baseReporterDecorator, config, logger, helper, forma
 
 	this.specSuccess = this.specSkipped = this.specFailure = function (browser, result) {
 		var spec = xml.ele('Test');
-		spec.ele('Name', result.suite + ' ' + result.description);
+		spec.ele('Name', result.suite + ' ' + result.description + ' (' + browser.name + ')');
 		spec.ele('DisplayName', result.suite + ' ' + result.description + ' (' + browser.name + ')');
 
 		if (result.success) {
