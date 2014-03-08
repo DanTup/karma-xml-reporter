@@ -1,0 +1,25 @@
+﻿{
+  "name": "karma-xml-reporter",
+  "version": "0.1",
+  "description": "A Karma plugin. Report results in DanTup's xml format.",
+  "main": "index.js",
+  "keywords": [
+    "karma-plugin",
+    "karma-reporter",
+    "xml"
+  ],
+  "author": {
+    "name": "Danny Tuppeny",
+    "email": "danny@tuppeny.com"
+  },
+  "dependencies": {
+    "xmlbuilder": "0.4.2"
+  },
+  "peerDependencies": {
+    "karma": ">=0.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/DanTup/karma-xml-reporter.git"
+  }
+}
