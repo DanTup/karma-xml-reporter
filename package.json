@@ -10,7 +10,7 @@
   ],
   "author": {
     "name": "Danny Tuppeny",
-    "email": "danny@tuppeny.com"
+    "email": "danny+npm@tuppeny.com"
   },
   "dependencies": {
     "xmlbuilder": "0.4.2"
