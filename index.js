@@ -21,21 +21,8 @@ var XmlReporter = function (baseReporterDecorator, config, logger, helper, forma
 		allMessages.push(msg);
 	}];
 
-	var initliazeXmlForBrowser = function (browser) {
-	};
-
 	this.onRunStart = function (browsers) {
 		xml = builder.create('Tests');
-
-		// TODO(vojta): remove once we don't care about Karma 0.10
-		browsers.forEach(initliazeXmlForBrowser);
-	};
-
-	this.onBrowserStart = function (browser) {
-		initliazeXmlForBrowser(browser);
-	};
-
-	this.onBrowserComplete = function (browser) {
 	};
 
 	this.onRunComplete = function () {
@@ -61,8 +48,8 @@ var XmlReporter = function (baseReporterDecorator, config, logger, helper, forma
 
 	this.specSuccess = this.specSkipped = this.specFailure = function (browser, result) {
 		var spec = xml.ele('Test');
-		spec.ele('Name', result.description);
-		spec.ele('DisplayName', result.description + ' (' + browser.name + ')');
+		spec.ele('Name', result.suite + ' ' + result.description);
+		spec.ele('DisplayName', result.suite + ' ' + result.description + ' (' + browser.name + ')');
 
 		if (result.success) {
 			spec.ele('Outcome', 'Passed');
