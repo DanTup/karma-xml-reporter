@@ -1,4 +1,4 @@
-﻿// Adapter from the Karma junit reporter
+﻿// Adapted from the Karma junit reporter
 var os = require('os');
 var path = require('path');
 var fs = require('fs');
@@ -21,8 +21,14 @@ var XmlReporter = function (baseReporterDecorator, config, logger, helper, forma
 		allMessages.push(msg);
 	}];
 
-	this.onRunStart = function (browsers) {
+	this.onRunStart = function () {
 		xml = builder.create('Tests');
+	};
+
+	this.onBrowserStart = function(browser) {
+	};
+	
+	this.onBrowserComplete = function(browser) {
 	};
 
 	this.onRunComplete = function () {
