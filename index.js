@@ -54,6 +54,11 @@ var XmlReporter = function (baseReporterDecorator, config, logger, helper, forma
 
 	this.specSuccess = this.specSkipped = this.specFailure = function (browser, result) {
 		var spec = xml.ele('Test');
+
+		if (result.suite && result.suite[0] === 'Jasmine__TopLevel__Suite') {
+			result.suite.shift();
+		}
+		
 		spec.ele('Name', result.suite + ' ' + result.description + ' (' + browser.name + ')');
 		spec.ele('DisplayName', result.suite + ' ' + result.description + ' (' + browser.name + ')');
 
