@@ -1,4 +1,4 @@
-NOTE: This software is not being actively developed or maintained.
+> NOTE: This software is not being actively developed or maintained.
 
 # karma-xml-reporter
 
